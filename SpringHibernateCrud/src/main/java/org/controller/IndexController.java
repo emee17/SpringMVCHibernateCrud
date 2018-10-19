@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,7 +21,7 @@ public class IndexController
 	@Autowired
 	private IdiotService idiotService;
 	
-	@RequestMapping("/")
+	@RequestMapping(value="/",method=RequestMethod.GET)
 	public String home(Model model)
 	{
  		model.addAttribute("idiot", new Idiot());
@@ -47,14 +48,15 @@ public class IndexController
 	
 	@RequestMapping("/editByEmail/{email}")
 	public ModelAndView findIdiotById(@PathVariable("email") String email)
-	{
-		System.out.println("In in Edit");
+	{ 
 		ModelAndView mv = new ModelAndView();
+		
 		Idiot idiot = idiotService.getIdiotById(email);
-		System.out.println("Edit Done");
+		
 		mv.addObject("idiot",idiot);
-		mv.setViewName("/editByEmail.jsp");
-		System.out.println("View Shown");
+		//mv.setViewName("/editByEmail.jsp");
+		mv.setViewName("/index.jsp");
+		
 		return mv;
 	}
 	

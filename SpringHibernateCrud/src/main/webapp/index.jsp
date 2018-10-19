@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+    <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <body>
 <h2>Hello World!</h2>
- <form action="register" method="post" >
+<%--  <form action="register" method="post" >
 		<table>
 			<tr>
 				<th>Name</th>
@@ -34,40 +35,38 @@
 				<th><input type="submit" value="submit" > </th>
 			</tr>
 		</table>
-	</form>
+	</form> --%>
 	<a href="/SpringHibernateCrud/listIdiots">List</a>
 
-	<%-- <form:form action="/SpringWebMvcAnnotaiotnModelAttribute/register" method="post" modelAttribute="idiot">
+	<form:form action="/SpringHibernateCrud/register" method="post" modelAttribute="idiot">
 		<table>
 			<tr>
-				<th>Name</th>
-				<th><form:input path="name"/> </th>
+				<td>Name</td>
+				<td><form:input path="name"/> </td>
 			</tr>
 			<tr>
-				<th>Email</th>
-				<th><form:input path="email"/> </th>
+				<td>Email</td>
+				<td><form:input path="email"/> </td>
 			</tr>
 			<tr>
-				<th>Mobile</th>
-				<th><form:input path="mobile"/> </th>
+				<td>Mobile</td>
+				<td><form:input path="mobile"/> </td>
 			</tr>
 			<tr>
-				<th>Country</th>
-				<th>
-				<form:select path="country"></form:select>
-					<select name="country">
-						<option value="india">india</option>
-						<option value="uk">uk</option>
-						<option value="us">us</option>
-					</select> 
-					
-				</th>
+				<td>Country</td>
+				<td>
+				<form:select path="country">
+					<form:option value="india">India</form:option>
+					<form:option value="UK">UK</form:option>
+					<form:option value="US">US</form:option>
+				</form:select>
+				</td>
 			</tr>
 			<tr>
-				<th><input type="submit" value="submit" > </th>
+				<td><input type="submit" value="submit" > </td>
 			</tr>
 		</table>
-	</form:form> --%>
+	</form:form>
 
 </body>
 </html>
