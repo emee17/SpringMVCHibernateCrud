@@ -28,7 +28,7 @@ public class IndexController
 		return "index.jsp";
 	}
 	
-	@PostMapping("register")
+	@PostMapping("/register")
 	public String register (@ModelAttribute("idiot") Idiot idiot)
 	{
 		
@@ -46,36 +46,46 @@ public class IndexController
 		return mv;
 	}
 	
-	@RequestMapping("/editByEmail/{email}")
-	public ModelAndView findIdiotById(@PathVariable("email") String email)
+	@RequestMapping("/editById/{id}")
+	public ModelAndView findIdiotById(@PathVariable("id") int id)
 	{ 
 		ModelAndView mv = new ModelAndView();
 		
-		Idiot idiot = idiotService.getIdiotById(email);
+		Idiot idiot = idiotService.getIdiotById(id);
 		
 		mv.addObject("idiot",idiot);
-		//mv.setViewName("/editByEmail.jsp");
-		mv.setViewName("/index.jsp");
+		mv.setViewName("/editById.jsp");
+		//mv.setViewName("/index.jsp");
 		
 		return mv;
 	}
 	
-	@RequestMapping("/updatIdiot")
-	public void updateIdiot(@ModelAttribute("idiot") Idiot idiot)
+	@RequestMapping(value="updateIdiot", method=RequestMethod.POST)
+	public String updateIdiot(@ModelAttribute("idiot") Idiot idiot)
 	{
 		idiotService.updateIdiot(idiot);
+		return "redirect:/listIdiots";
 	}
 	
-	@RequestMapping("/deletetByEmail/{email}")
-	public String  deletetByEmail(@PathVariable("email") String email)
+	@RequestMapping("/deleteById/{id}")
+	public String  deleteById(@PathVariable("id") int id)
 	{
 		System.out.println("In in delete");
-		idiotService.deletetByEmail(email);
+		idiotService.deleteById(id);
 		System.out.println("Delete Done");
-		return "redirect:/AllIdiots.jsp";
+		return "redirect:/listIdiots";
 	}
 	
 	public void setIdiotservice(IdiotService idiotService) {
 		this.idiotService = idiotService;
 	}
+	
+	/*public void updateIdiot(@RequestParam("id") int id,@RequestParam("name") String name,@RequestParam("email") String email,@RequestParam("mobile") long mobile,@RequestParam("country") String country)
+	{
+		Idiot idiot = new Idiot();
+		idiot.setId(id);
+		idiot.setEmail(email);
+		idiot.setCountry(country);
+		idiot.setMobile(mobile);
+		idiot.setName(name);*/
 }

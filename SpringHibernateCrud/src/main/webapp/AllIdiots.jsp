@@ -26,8 +26,8 @@
 			<td><c:out value="${idiot.email}"></c:out> </td>
 			<td><c:out value="${idiot.mobile}"></c:out> </td>
 			<td><c:out value="${idiot.country}"></c:out> </td>
-			<td><a href="/SpringHibernateCrud/editByEmail/${idiot.email}">Edit</a></td>
-			<td><a href="/SpringHibernateCrud/deleteByEmail/${idiot.email}">Delete</a></td>
+			<td><a href="/SpringHibernateCrud/editById/${idiot.id}">Edit</a></td>
+			<td><a href="/SpringHibernateCrud/deleteById/${idiot.id}">Delete</a></td>
 		
 		</tr>
 		</c:forEach>

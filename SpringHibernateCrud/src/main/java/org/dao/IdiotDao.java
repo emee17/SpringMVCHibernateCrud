@@ -43,12 +43,12 @@ public class IdiotDao
 		
 	}
 	
-	public Idiot getIdiotById(String email)
+	public Idiot getIdiotById(int id)
 	{
 		Session session = sessionFactory.getCurrentSession();
 		/*Idiot idiot  = (Idiot) session.get(Idiot.class, email);*/
-		Query q = session.createQuery("from Idiot where email = :b");
-		q.setParameter("b", email);
+		Query q = session.createQuery("from Idiot where id = :b");
+		q.setParameter("b", id);
 		Idiot idiot = (Idiot) q.uniqueResult();
  		
 		System.out.println(idiot);
@@ -58,13 +58,13 @@ public class IdiotDao
 	public void updateIdiot(Idiot idiot) 
 	{
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(idiot);
+		session.update(idiot);
 	}
 
-	public void deletetByEmail(String email)
+	public void deleteById(int id)
 	{
 		Session session = sessionFactory.getCurrentSession();
-		Idiot idiot = (Idiot) session.get(Idiot.class, email);
+		Idiot idiot = (Idiot) session.get(Idiot.class, id);
 		if (idiot!=null)
 		session.delete(idiot);
 	}

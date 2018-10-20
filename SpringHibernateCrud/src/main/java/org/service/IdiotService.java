@@ -28,17 +28,17 @@ public class IdiotService {
 		return idiotDao.getAllIdiots();
 	}
 
-	public Idiot getIdiotById(String email) {
+	public Idiot getIdiotById(int id) {
 		
-		return idiotDao.getIdiotById(email);
+		return idiotDao.getIdiotById(id);
 	}
 	public void updateIdiot(Idiot idiot)
 	{
 		idiotDao.updateIdiot(idiot);
 	}
 
-	public void deletetByEmail(String email) {
-		idiotDao.deletetByEmail(email);
+	public void deleteById(int id) {
+		idiotDao.deleteById(id);
 		
 	}
 

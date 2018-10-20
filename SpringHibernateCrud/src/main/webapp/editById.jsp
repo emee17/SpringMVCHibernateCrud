@@ -8,8 +8,11 @@
 </head>
 <body>
 ${idiot}
-	 <form action="updateIdiot" method="post" >
+	 <form action="/SpringHibernateCrud/updateIdiot" method="post" >
 		<table>
+			<tr>
+				<th><input type="hidden" name="id" value="${idiot.id}"/> </th>
+			</tr>
 			<tr>
 				<th>Name</th>
 				<th><input type="text" name="name" value="${idiot.name}"/> </th>

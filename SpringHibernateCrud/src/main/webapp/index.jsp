@@ -6,19 +6,22 @@
 <html>
 <body>
 <h2>Hello World!</h2>
-<%--  <form action="register" method="post" >
+ <form action="register" method="post" >
 		<table>
+			<%-- <tr>
+				<th><input type="hidden" name="id" value="${idiot.id}"/> </th>
+			</tr> --%>
 			<tr>
 				<th>Name</th>
-				<th><input type="text" name="name"/> </th>
+				<th><input type="text" name="name" value="${idiot.name}"/> </th>
 			</tr>
 			<tr>
 				<th>Email</th>
-				<th><input type="text" name="email"/> </th>
+				<th><input type="text" name="email" value="${idiot.email}"/> </th>
 			</tr>
 			<tr>
 				<th>Mobile</th>
-				<th><input type="text" name="mobile"/> </th>
+				<th><input type="text" name="mobile" value="${idiot.mobile}"/> </th>
 			</tr>
 			<tr>
 				<th>Country</th>
@@ -35,27 +38,27 @@
 				<th><input type="submit" value="submit" > </th>
 			</tr>
 		</table>
-	</form> --%>
+	</form>
 	<a href="/SpringHibernateCrud/listIdiots">List</a>
 
-	<form:form action="/SpringHibernateCrud/register" method="post" modelAttribute="idiot">
+	<%-- <form:form action="/SpringHibernateCrud/register" method="post" modelAttribute="idiot">
 		<table>
 			<tr>
 				<td>Name</td>
-				<td><form:input path="name"/> </td>
+				<td><form:input path="idiot.name"/> </td>
 			</tr>
 			<tr>
 				<td>Email</td>
-				<td><form:input path="email"/> </td>
+				<td><form:input path="idiot.email"/> </td>
 			</tr>
 			<tr>
 				<td>Mobile</td>
-				<td><form:input path="mobile"/> </td>
+				<td><form:input path="idiot.mobile"/> </td>
 			</tr>
 			<tr>
 				<td>Country</td>
 				<td>
-				<form:select path="country">
+				<form:select path="idiot.country">
 					<form:option value="india">India</form:option>
 					<form:option value="UK">UK</form:option>
 					<form:option value="US">US</form:option>
@@ -66,7 +69,7 @@
 				<td><input type="submit" value="submit" > </td>
 			</tr>
 		</table>
-	</form:form>
+	</form:form> --%>
 
 </body>
 </html>
